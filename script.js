@@ -60,6 +60,19 @@ btn.addEventListener('click', function (event) {
         alert(err.message);
         card.innerHTML = ""; // Clear on error
       });
+    userRepository(username)
+      .then((data) => {
+        let repoData = "<h3>Repositories:</h3><ul>";
+        data.forEach((repo) => {
+          repoData += `<li><a href="${repo.html_url}" target="_blank">${repo.name}</a></li>`;
+        });
+        repoData += "</ul>";
+        card.innerHTML += repoData;
+      })
+      .catch((err) => {
+        alert(err.message);
+        card.innerHTML = ""; // Clear on error
+      });
   } else {
     alert("Please Enter Username...❗");
   }
