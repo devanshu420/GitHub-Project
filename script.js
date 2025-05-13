@@ -49,7 +49,7 @@ btn.addEventListener('click', function (event) {
   const username = usernameInp.value.trim();
   const loading = document.getElementById("loading");
   card.innerHTML = ""; // clear previous results
-//   loading.classList.remove("hidden");
+  loading.classList.remove("hidden");
 
   if (username.length > 0) {
     fetchProfileData(username)
@@ -60,7 +60,7 @@ btn.addEventListener('click', function (event) {
         alert(err.message);
         card.innerHTML = ""; // Clear on error
       });
-    userRepository(username)
+       userRepository(username)
       .then((data) => {
         let repoData = "<h3>Repositories:</h3><ul>";
         data.forEach((repo) => {
